@@ -1,0 +1,70 @@
+@import '../global.scss';
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 1rem;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-corner {
+  display: block;
+}
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  border-right: 0.1rem solid transparent;
+  border-left: 0.1rem solid transparent;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0.8rem;
+  border-radius: 0.8rem;
+  background-color: rgba(255,255,255,.2);
+}
+.send {
+  position: relative;
+}
+.topic {
+  color: #f76565;
+}
+.payload {
+  color: #e6db74;
+}
+.info {
+  color: white;
+}
+.clearfix {
+  &::after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.input {
+  float: left;
+  width: 40%;
+  &:first-child {
+    margin-right: 1*$unit;
+  }
+  &:last-child {
+    margin-left: 1*$unit;
+  }
+}
+.button {
+  float: left;
+  margin-left: 2*$unit;
+  position: absolute;
+  bottom: 2*$unit;
+}
+.dashboardMsg {
+  padding: 0.3*$unit 0.5*$unit;
+  background-color: #23241f;
+  border-radius: 0.5*$unit;
+  > div {
+    margin: 0.5*$unit 0;
+  }
+  height: 50*$unit;
+  overflow: auto;
+  font-size: 1.4*$unit;
+}

@@ -1,0 +1,53 @@
+$purple: #800080;
+$white: #fff;
+@import '../../global.scss';
+
+$appbar-height: 6.4 * $unit;
+$appbar-logo-size: 3.6 * $unit;
+$appbar-shadow: 0 1px rgba(255,255,255,.65);
+$appbar-navigation-offset: 6.5 * $unit;
+
+.appBar {
+  background-color: $palette-blue-700;
+  >svg {
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-right: 1rem;
+    fill: $white;
+  }
+}
+
+.navigation {
+  flex-grow: 1;
+  text-align: left;
+  >ul {
+    list-style: none;
+    >li {
+      display: inline-block;
+      >a {
+        @include typo-menu;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0;
+        position: relative;
+        display: inline-block;
+        padding: 0 1.5 * $unit;
+        margin-right: $unit;
+        line-height: $appbar-height;
+        color: $color-primary-contrast;
+        text-decoration: none;
+        &.active:after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 0.3 * $unit;
+          content: '';
+          background-color: $color-accent;
+        }
+      }
+    }
+  }
+}

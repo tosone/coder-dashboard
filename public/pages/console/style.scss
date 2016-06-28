@@ -1,0 +1,36 @@
+@import '../global.scss';
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 1rem;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-corner {
+  display: block;
+}
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  border-right: 0.1rem solid transparent;
+  border-left: 0.1rem solid transparent;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0.8rem;
+  border-radius: 0.8rem;
+  background-color: rgba(255,255,255,.2);
+}
+.dashboard,
+.operationBar {
+  position: fixed;
+}
+.operationBar {
+  width: 20*$unit;
+  overflow-x: hidden;
+}
+.dashboard {
+  padding-left: 1*$unit;
+  padding-right: 1*$unit;
+  left: 20*$unit;
+  right: 0;
+}
