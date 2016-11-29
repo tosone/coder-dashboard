@@ -3,9 +3,13 @@ import Koa from 'koa';
 import http from 'http';
 import path from 'path';
 import https from 'https';
+
 import webpack from 'webpack';
+import Promise from 'bluebird';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+
+const readFile = Promise.promisify(fs.readFile);
 
 import config from './config';
 
@@ -35,8 +39,8 @@ http.createServer(app.callback()).listen(config.clientHttpPort, err => {
 });
 
 https.createServer({
-  key: fs.readFileSync('pem/privatekey.pem'),
-  cert: fs.readFileSync('pem/certificate.pem'),
+  key: readFile('pem/privatekey.pem'),
+  cert: readFile('pem/certificate.pem'),
 }, app.callback()).listen(config.clientHttpsPort, err => {
   if (err) {
     console.log(err);
