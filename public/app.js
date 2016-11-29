@@ -21,3 +21,4 @@ render(
     <Route path="*" component={NoMatch}/>
   </Route>
 </Router>, document.getElementById('app'));
+

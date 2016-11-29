@@ -7,6 +7,6 @@ mongoose.model('organization', new Schema({
   website: String,
   user: [{
     type: Schema.Types.ObjectId,
-    ref: 'user',
-  }],
+    ref: 'user'
+  }]
 }));

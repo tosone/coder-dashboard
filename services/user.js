@@ -1,25 +1,16 @@
 import mongoose from 'mongoose';
 
 const models = mongoose.models;
-const seneca = require(".");
+const seneca = require('.');
 
-seneca.add({
-  role: 'user',
-  cmd: 'signup'
-}, function (args, callback) {
-  let User = models.user;
-  User.register(new User({
-    name: args.name
-  }), args.pwd, err => {
+const User = models.user;
+
+seneca.add({ role: 'user', cmd: 'signup' }, (args, callback) => {
+  User.register(new User({ name: args.name }), args.pwd, err => {
     if (err) {
-      callback(null, {
-        code: 500,
-        msg: err
-      });
+      callback(null, { code: 500, msg: err });
     } else {
-      callback(null, {
-        code: 200
-      });
+      callback(null, { code: 200 });
     }
   });
 });

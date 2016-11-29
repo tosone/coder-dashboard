@@ -1,5 +1,3 @@
-'use strict';
-
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -19,12 +17,12 @@ const webpackConfig = {
     hot: true,
     inline: true,
     port: 3000,
-    host: 'localhost',
+    host: 'localhost'
   },
   devtool: 'eval',
   output: {
     path: config.buildPath,
-    filename: 'app.js',
+    filename: 'app.js'
   },
   postcss: [autoprefixer],
   resolve: {
@@ -44,7 +42,7 @@ const webpackConfig = {
         exclude: [config.nodeModulesPath]
       }, {
         test: /\.(scss|css)$/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'),
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
       }
     ]
   }

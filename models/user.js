@@ -14,14 +14,14 @@ const userSchema = new Schema({
   avatar: String,
   organization: [{
     type: Schema.Types.ObjectId,
-    ref: 'organization',
-  }],
+    ref: 'organization'
+  }]
 });
 
 userSchema.plugin(passportLocalMongoose, {
   usernameField: 'name',
   saltField: 'salt',
-  hashField: 'hash',
+  hashField: 'hash'
 });
 
 const User = mongoose.model('user', userSchema);
