@@ -6,14 +6,13 @@ class Index extends React.Component {
   constructor(props, context) {
     super(props, context);
   }
-  componentDidMount() { }
+  componentDidMount() {}
   render() {
     return (
       <div>
-        <MenuBar/>
-        {this.props.children}
+        <MenuBar/> {this.props.children}
       </div>
-    )
+    );
   }
 }
 

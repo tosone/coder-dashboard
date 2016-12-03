@@ -26,16 +26,16 @@ class Index extends React.Component {
     ];
     this.dialogActions = [
       {
-        label: "Cancel",
+        label: 'Cancel',
         onClick: this.dialogToggle.bind(this)
       }, {
-        label: "Save",
+        label: 'Save',
         onClick: this.dialogToggle.bind(this, 'add')
       }
     ];
     this.alertActions = [
       {
-        label: "OK",
+        label: 'OK',
         onClick: this.alertToggle.bind(this)
       }
     ];
@@ -91,7 +91,7 @@ class Index extends React.Component {
     if (key && key === 'add' && this.state.dialogActive && this.state.IP !== '') {
       if (this.ipReg.test(this.state.IP)) {
         let count = 0;
-        _.forEach(this.contentList, (val, key) => {
+        _.forEach(this.contentList, val => {
           if (val.caption === this.state.IP) {
             this.setState({
               alertConfig: {

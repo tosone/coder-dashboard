@@ -19,7 +19,7 @@ class Index extends React.Component {
         </aside>
         {this.props.children}
       </div>
-    )
+    );
   }
 }
 

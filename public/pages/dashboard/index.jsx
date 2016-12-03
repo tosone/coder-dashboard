@@ -1,25 +1,28 @@
-import React from 'react';
-import {FontIcon, IconButton, Button, Dialog, Input} from 'react-toolbox';
-import ReactDOM from 'react-dom';
-import uuid from 'uuid';
 import _ from 'lodash';
-import style from './style';
+import uuid from 'uuid';
 import mqtt from 'mqtt';
+import React from 'react';
 import classnames from 'classnames';
+
+import style from './style';
+
 class Index extends React.Component {
   constructor(props, context) {
     super(props, context);
   }
+  componentWillUnmount() {
+    this.mqtt.end();
+  }
   mqttInit() {
     this.msgList = [];
-    console.log(this.ip);
+    // console.log(this.ip);
     this.mqtt = mqtt.connect('mqtt://' + this.ip + ':1883');
     this.mqtt.on('connect', () => {
       this.mqtt.subscribe('#');
-      console.log('Connected to mqtt server.');
+      // console.log('Connected to mqtt server.');
     });
     this.mqtt.on('message', (topic, payload) => {
-      let msg = [
+      const msg = [
         {
           topic,
           payload
@@ -29,17 +32,14 @@ class Index extends React.Component {
       this.setState({msgList: this.renderMsgList()});
     });
   }
-  componentWillUnmount() {
-    this.mqtt.end();
-  }
   renderMsgList() {
     let temp = [];
-    _.forEach(this.msgList, (val, key) => {
+    _.forEach(this.msgList, val => {
       let payload = '';
       try {
-        payload = JSON.parse(val.payload.toString())
+        payload = JSON.parse(val.payload.toString());
       } catch (e) {
-        payload = val.payload.toString()
+        payload = val.payload.toString();
       }
       temp.push(
         <div key={uuid.v4()}>
@@ -55,8 +55,8 @@ class Index extends React.Component {
     });
     return temp.reverse();
   }
-  componentDidUpdate(prevProps, prevState) {
-    let obj = document.getElementById("dashboardMsg");
+  componentDidUpdate() {
+    let obj = document.getElementById('dashboardMsg');
     obj.scrollTop = obj.scrollHeight;
   }
   componentWillMount() {
@@ -64,9 +64,7 @@ class Index extends React.Component {
     this.mqttInit();
     this.setState({msgList: this.renderMsgList(), sendTopic: '', sendPayload: ''});
   }
-  componentWillReceiveProps(e) {
-    console.log(e);
-  }
+  componentWillReceiveProps() {}
   send() {
     if (this.state.sendTopic !== '' && this.state.sendPayload !== '') {
       this.mqtt.publish(this.state.sendTopic, JSON.stringify(this.state.sendPayload));
@@ -90,7 +88,7 @@ class Index extends React.Component {
         {this.state.msgList}
       </div>
     </div>
-    )
+    );
   }
 }
 export default Index;

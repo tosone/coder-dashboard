@@ -11,7 +11,7 @@ class Index extends React.Component {
       <div>
         {this.props.params.id}
       </div>
-    )
+    );
   }
 }
 
