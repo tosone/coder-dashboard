@@ -1,4 +1,7 @@
 # coder-dashboard
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fa1ad624eccd479a96d9dd3797fbbdae)](https://www.codacy.com/app/tosone/coder-dashboard?utm_source=github.com&utm_medium=referral&utm_content=tosone/coder-dashboard&utm_campaign=badger)
+
 coder-dashboard
 
 ### Step
