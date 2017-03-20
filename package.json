@@ -9,7 +9,9 @@
     "clientBuild": "webpack --config ./webpack/webpack-production.config.js --progress --display-modules --display-chunks",
     "init": "",
     "test": "mocha test --reporter mochawesome -b",
-    "update": "ncu -u -a"
+    "update": "ncu -u -a",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -82,7 +84,8 @@
     "transfer-webpack-plugin": "^0.1.4",
     "uuid": "^3.0.1",
     "webpack-dev-server": "^1.16.2",
-    "winston": "^2.3.0"
+    "winston": "^2.3.0",
+    "snyk": "^1.25.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -114,5 +117,6 @@
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.2"
-  }
+  },
+  "snyk": true
 }
